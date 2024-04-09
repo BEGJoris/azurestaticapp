@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
+    />
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  </head>
+  <body class="bg-gray-100">
+    <iframe
+      src="./header.html"
+      frameborder="0"
+      class="w-full"
+      style="height: 170px"
+      scrolling="no"
+    ></iframe>
+    <div class="container mx-auto mt-10 p-4">
+      <div class="text-xl sm:text-2xl mb-6 font-bold">DASHBOARD</div>
+
+      <div class="flex flex-col sm:flex-row justify-between items-center mb-4">
+        <div class="mb-4 sm:mb-0">
+          <button
+            id="listTab"
+            class="px-4 py-2 text-purple-600 border-b-2 border-purple-600"
+          >
+            Liste Services/Matériels
+          </button>
+          <button
+            id="renduTab"
+            class="px-4 py-2 text-gray-600 border-b-2 border-600"
+          >
+            Services/Matériels Vendus
+          </button>
+          <button
+            id="recuTab"
+            class="px-4 py-2 text-gray-600 border-b-2 border-600"
+          >
+            Services/Matériels Achetés
+          </button>
+          <button
+            id="reservationTab"
+            class="px-4 py-2 text-gray-600 border-b-2 border-600"
+          >
+            Demandes De Reservations
+          </button>
+        </div>
+        <div class="text-lg">
+          <span class="font-bold">15 JETONS</span>
+        </div>
+      </div>
+
+      <div id="resilierModal" class="hidden" title="Résiliation">
+        <p>Voulez vous résilier ?</p>
+        <br>
+        <p>
+         Vous allez être remboursé en fonction de la durée.
+        </p>
+      </div>
+
+      <div id="acceptModal" class="hidden" title="Accepter">
+        <p>Voulez vous accepter cette demande ?</p>
+
+      </div>
+      <div id="refuserModal" class="hidden" title="Rejeter">
+        <p>Voulez vous rejeter cette demande ?</p>
+
+      </div>
+
+      <div class="mb-6">
+        
+      </div>
+      <div id="listContent">
+        <div class="bg-white shadow overflow-hidden sm:rounded-md">
+          <ul class="divide-y divide-gray-200">
+            <li class="px-6 py-4">
+              <div
+                onclick="affiche(this)"
+                id="1"
+                class="flex items-center space-x-4"
+              >
+                <div class="flex-shrink-0">
+                  <span
+                    class="h-10 w-10 rounded-full bg-gray-300 flex items-center justify-center"
+                    >Icon</span
+                  >
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="text-sm font-medium text-gray-900 truncate">
+                    Nettoyage voiture
+                  </p>
+                  <p class="text-sm text-gray-500 truncate">Disponible</p>
+                </div>
+                <div class="inline-flex items-center text-base">
+                  <span class="text-gray-500">Automobile</span>
+                </div>
+                <div class="inline-flex items-center text-base">
+                  <span class="type text-gray-500">Service</span>
+                </div>
+                <div class="inline-flex items-center text-sm">
+                  <span class="text-gray-900 font-bold">10 Jetons</span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id="renduContent" class="hidden">
+        <div class="bg-white shadow overflow-hidden sm:rounded-md">
+          <ul class="divide-y divide-gray-200">
+            <li class="px-6 py-4">
+              <div onclick="affiche(this)" class="flex items-center space-x-4">
+                <div class="flex-shrink-0">
+                  <span
+                    class="h-10 w-10 rounded-full bg-gray-300 flex items-center justify-center"
+                    >Icon</span
+                  >
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="text-sm font-medium text-gray-900 truncate">
+                    exemple materiel rendu
+                  </p>
+                  <p class="text-sm text-gray-500 truncate">Disponible</p>
+                </div>
+                <div class="inline-flex items-center text-base">
+                  <span class="text-gray-500">Automobile</span>
+                </div>
+                <div class="inline-flex items-center text-base">
+                  <span class="type text-gray-500">Materiel</span>
+                </div>
+                <div class="inline-flex items-center text-sm">
+                  <span class="text-gray-900 font-bold">10 Jetons</span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id="recuContent" class="hidden">
+        <div class="bg-white shadow overflow-hidden sm:rounded-md">
+          <ul class="divide-y divide-gray-200">
+            <li class="px-6 py-4">
+              <div onclick="affiche(this)" class="flex items-center space-x-4">
+                <div class="flex-shrink-0">
+                  <span
+                    class="h-10 w-10 rounded-full bg-gray-300 flex items-center justify-center"
+                    >Icon</span
+                  >
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="text-sm font-medium text-gray-900 truncate">
+                    exemple materiel recu
+                  </p>
+                  <p class="text-sm text-gray-500 truncate">Disponible</p>
+                </div>
+                <div class="inline-flex items-center text-base">
+                  <span class="text-gray-500">Automobile</span>
+                </div>
+                <div class="inline-flex items-center text-base">
+                  <span class="type text-gray-500">Materiel</span>
+                </div>
+                <div class="inline-flex items-center text-sm">
+                  <span class="text-gray-900 font-bold">10 Jetons</span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id="reservationContent" class="hidden">
+        <div class="bg-white shadow overflow-hidden sm:rounded-md">
+          <ul class="divide-y divide-gray-200">
+            <li class="px-6 py-4">
+              <div onclick="affiche(this)" class="flex items-center space-x-4">
+                <div class="flex-shrink-0">
+                  <span
+                    class="h-10 w-10 rounded-full bg-gray-300 flex items-center justify-center"
+                    >Icon</span
+                  >
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="text-sm font-medium text-gray-900 truncate">
+                    exemple materiel recu
+                  </p>
+                  <p class="text-sm text-gray-500 truncate">Disponible</p>
+                </div>
+                <div class="inline-flex items-center text-base">
+                  <span class="text-gray-500">Automobile</span>
+                </div>
+                <div class="inline-flex items-center text-base">
+                  <span class="type text-gray-500">Materiel</span>
+                </div>
+                <div class="inline-flex items-center text-sm">
+                  <span class="text-gray-900 font-bold">10 Jetons</span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./js/changeTab.js"></script>
+    <script src="./js/afficheMaterielService.js"></script>
+    <script type="module" src="./js/dashboard.js"></script>
+    <script src="./js/verif.js"></script>
+  </body>
+</html>

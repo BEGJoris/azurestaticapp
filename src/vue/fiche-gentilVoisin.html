@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profil Utilisateur - GentiVoisin</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body class="bg-gray-100">
+    <iframe
+      src="./header.html"
+      frameborder="0"
+      class="w-full"
+      style="height: 170px"
+      scrolling="no"
+    ></iframe>
+
+    <div class="container mx-auto my-8 p-4 sm:p-6 bg-white rounded shadow-lg">
+      <div
+        class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4"
+      >
+        <div class="flex-shrink-0">
+          <img
+            class="h-16 w-16 sm:h-20 sm:w-20 rounded-full"
+            src="https://www.gravatar.com/avatar/?d=identicon"
+            alt="Avatar de l'utilisateur"
+          />
+        </div>
+        <div>
+          <h1 class="text-2xl sm:text-3xl font-bold text-gray-800">
+            Jean Dupont
+          </h1>
+          <p id="tel" class="text-sm text-gray-800">0783069020</p>
+          <p id="mail" class="text-sm text-gray-900">@gmail.com</p>
+        </div>
+      </div>
+      <div class="mt-6">
+        <h2 class="text-lg sm:text-xl font-semibold mb-2">
+          Transactions réalisées
+        </h2>
+        <div class="bg-white shadow overflow-hidden sm:rounded-md">
+          <ul id="transactions-list" class="divide-y divide-gray-200">
+          </ul>
+        </div>
+      </div>
+      <div class="mt-6">
+        <h2 class="text-lg sm:text-xl font-semibold mb-2">Avis reçus</h2>
+        <div class="bg-white shadow overflow-hidden sm:rounded-md">
+          <ul class="divide-y divide-gray-200">
+            <li class="px-6 py-4">
+              <div class="flex space-x-3">
+                <div class="flex-shrink-0">
+                  <img
+                    class="h-10 w-10 rounded-full"
+                    src="https://via.placeholder.com/150"
+                    alt="Avatar de l'évaluateur"
+                  />
+                </div>
+                <div>
+                  <div class="text-sm font-medium text-gray-900">
+                    Alice Martin
+                  </div>
+                  <div class="mt-1 text-sm text-gray-600">
+                    <p>
+                      Très ponctuel et matériel en excellent état, je
+                      recommande!
+                    </p>
+                  </div>
+                  <div class="mt-2 text-sm space-x-2">
+                    <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                    <span class="text-gray-500">05/04/2024</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./js/fiche.js"></script>
+  </body>
+</html>

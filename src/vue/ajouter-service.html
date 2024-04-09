@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un service</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.x/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <iframe src="./header.html" frameborder="0" width="100%" height="170px" scrolling="no"></iframe>
+    <button type="button" onclick="window.location.href = './gestion-materiels-services.html'" name="btn-connexion" class="bg-purple-500 hover:bg-purple-700 text-white py-2 px-4 rounded mb-6 ml-4">
+        <svg width="35px" height="35px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 10L3.29289 10.7071L2.58579 10L3.29289 9.29289L4 10ZM21 18C21 18.5523 20.5523 19 20 19C19.4477 19 19 18.5523 19 18L21 18ZM8.29289 15.7071L3.29289 10.7071L4.70711 9.29289L9.70711 14.2929L8.29289 15.7071ZM3.29289 9.29289L8.29289 4.29289L9.70711 5.70711L4.70711 10.7071L3.29289 9.29289ZM4 9L14 9L14 11L4 11L4 9ZM21 16L21 18L19 18L19 16L21 16ZM14 9C17.866 9 21 12.134 21 16L19 16C19 13.2386 16.7614 11 14 11L14 9Z" fill="#33363F"/>
+        </svg>
+    </button>
+
+    <div class="container mx-auto p-2">
+        <div class="w-full max-w-lg mx-auto mt-6 bg-white p-8 border border-gray-300">
+            <h2 class="font-semibold text-xl mb-6">Ajouter un Service</h2>
+            <form id="addServiceForm" enctype="multipart/form-data">
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="nom">Nom du service</label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight" required id="nom" type="text" placeholder="Nom du service">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="description">Description</label>
+                    <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight" required id="description" placeholder="Description"></textarea>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="valeur_forfaitaire">Valeur forfaitaire</label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight" required min="0" id="val_forf" type="number" placeholder="Valeur forfaitaire "></textarea>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="valeur_quotidienne">Valeur quotidienne</label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight" required min="0" id="val_quot" type="number" placeholder="Valeur quotidienne "></textarea>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="categorie">Catégorie</label>
+                    <select class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight" id="categorie">
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Choisir une option :</label>
+                    <select id="choixOption" name="choixOption" required>
+                        <option value="fichier">Sélectionner depuis les fichiers</option>
+                        <option value="camera">Prendre une photo</option>
+                    </select>
+                </div>
+                <div class="mb-4" id="optionFichier">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Image</label>
+                    <input type="file" id="images" name="images[]" accept=".png ,.jpg, .jpeg, .heic" required multiple>
+                    <div id="imagePreview" class="flex space-x-2 mt-2">
+                        <!-- <img id="photo"src=""/> -->
+                    </div>
+                </div>
+                
+                <div class="mb-4" id="optionCamera" style="display: none;">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Image</label>
+                    <button id="btn">Prendre une photo</button>
+                    <br>
+                </div>
+                
+                <div class="flex items-center justify-between">
+                    <button class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded" type="submit">
+                        Valider
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script>
+        let app = {
+            init: function(){
+                document.getElementById('btn').addEventListener('click', app.takephoto);
+            },
+            takephoto: function(){
+                let opts = {
+                    quality: 80,
+                    saveToPhotoAlbum:true,
+                    correctOrientation:true,
+                    destinationType: Camera.DestinationType.DATA_URL,
+                    sourceType: Camera.PictureSourceType.CAMERA,
+                    mediaType: Camera.MediaType.PICTURE,
+                    encodingType: Camera.EncodingType.JPEG,
+                    cameraDirection: Camera.Direction.BACK,
+                    targetWidth: 300,
+                    targetHeight: 400
+                };
+               
+                navigator.camera.getPicture(app.ftw, app.wtf, opts);
+            },
+            ftw: function(imgURI){
+                // document.getElementById('photo').src = "data:image/jpeg;base64,"+imgURI;
+               
+            },
+            wtf: function(msg){}
+        };
+       
+        document.addEventListener('deviceready', app.init);
+    </script>
+    <script src="./js/addservice.js" type="module"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./js/verif.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription GentiVoisin</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4">
+        <div class="max-w-md mx-auto my-10 bg-white p-5 rounded-md shadow-sm">
+            <div class="text-center">
+                <a href="./index.html" target="_parent"><img src="./image/retour.jpg" alt="Accueil" class="h-12 w-12"></a>
+                <h1 class="my-3 text-3xl font-semibold text-gray-700">Inscription</h1>
+                <p class="text-gray-400">Rejoignez GentiVoisin</p>
+            </div>
+            <div class="m-7">
+                <form id="inscriptionForm">
+                    <div class="mb-6">
+                        <label for="nom" class="block mb-2 text-sm text-gray-600">Nom</label>
+                        <input type="text" name="nom" id="nom" placeholder="Doe" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-purple-100 focus:border-purple-300" pattern="[A-Za-z\s]{1,}" />
+                    </div>
+                    <div class="mb-6">
+                        <label for="prenom" class="block mb-2 text-sm text-gray-600">Prénom</label>
+                        <input type="text" name="prenom" id="prenom" placeholder="John" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-purple-100 focus:border-purple-300" pattern="[A-Za-z\s]{1,}"/>
+                    </div>
+                    <div class="mb-6">
+                        <label for="adresse" class="block mb-2 text-sm text-gray-600">Adresse</label>
+                        <input type="text" name="adresse" id="adresse" placeholder="123 Rue Exemple" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-purple-100 focus:border-purple-300" />
+                    </div>
+                    <div class="mb-6">
+                        <label for="telephone" class="block mb-2 text-sm text-gray-600">Téléphone</label>
+                        <input type="tel" name="telephone" id="telephone" placeholder="0601020304" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-purple-100 focus:border-purple-300" pattern="[0-9]{10}" />
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="email" class="block mb-2 text-sm text-gray-600">Email</label>
+                        <input type="email" name="email" id="email" placeholder="john.doe@example.com" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-purple-100 focus:border-purple-300" />
+                    </div>
+                    <div class="mb-6">
+                        <label for="mot_de_passe" class="block mb-2 text-sm text-gray-600">Mot de passe</label>
+                        <input type="password" name="mot_de_passe" id="mot_de_passe" placeholder="********" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-purple-100 focus:border-purple-300" />
+                    </div>
+                    <div class="mb-6">
+                        <label for="conf_mot_de_passe" class="block mb-2 text-sm text-gray-600">Confirmer le mot de passe</label>
+                        <input type="password" name="conf_mot_de_passe" id="conf_mot_de_passe" placeholder="********" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-purple-100 focus:border-purple-300" pattern="^.{6,}$"  />
+                        <small id="erreur_conf_mot_de_passe" class="text-red-600 hidden">Les mots de passe ne correspondent pas</small>
+                    </div>
+                    <div class="mb-6">
+                        <label for="rayon_deplacement" class="block mb-2 text-sm text-gray-600">Rayon de déplacement (en km)</label>
+                        <input type="number" name="rayon_deplacement" id="rayon_deplacement" placeholder="20" min="0" step="1" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-purple-100 focus:border-purple-300" />
+                    </div>
+                    <div class="mb-6">
+                        <button type="submit" name="btn-inscription" class="w-full px-3 py-4 text-white bg-purple-500 rounded-md focus:bg-purple-600 focus:outline-none">S'inscrire</button>
+                    </div>
+                    <div class="mb-6 flex justify-center ">
+                        <button type="button" onclick="window.location.href = './connexion.html'" name="btn-connexion" class="bg-purple-500 hover:bg-purple-700 text-white py-2 px-4 rounded">Se connecter</button>
+                    </div>
+                   
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script  src="./js/inscription.js"></script>
+
+</html>

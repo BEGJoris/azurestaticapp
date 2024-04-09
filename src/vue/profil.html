@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Utilisateur - GentiVoisin</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body class="bg-gray-100">
+    <iframe src="./header.html" frameborder="0" class="w-full" style="height: 170px" scrolling="no"></iframe>
+    <div class="container mx-auto my-8 p-4 sm:p-6 bg-white rounded shadow-lg">
+        <div class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 justify-between">
+            <div class="flex-shrink-0">
+                <img class="h-16 w-16 sm:h-20 sm:w-20 rounded-full" src="https://www.gravatar.com/avatar/?d=identicon" alt="Avatar de l'utilisateur">
+            </div>
+            <div>
+                <h1 id="nom" class="text-2xl sm:text-3xl font-bold text-gray-800">[Nom de l'utilisateur]</h1>
+                <p id="tel" class="text-sm text-gray-800">[Numéro de téléphone]</p>
+                <p id="mail" class="text-sm text-gray-900">[Adresse email]</p>
+                <p id="adresse" class="text-sm text-gray-800">Adresse</p>
+                <p id="date" class="text-sm text-gray-900">[Date]</p>
+            </div>
+            <div class="text-right">
+                <h1 id="jetons" class="text-2xl sm:text-3xl font-bold text-gray-800">[Jetons]</h1>
+            </div>
+        </div>
+        <div class="mt-6">
+            <h2 class="text-lg sm:text-xl font-semibold mb-2">Transactions réalisées</h2>
+            <div class="bg-white shadow overflow-hidden sm:rounded-md">
+                <ul id="transactions-list" class="divide-y divide-gray-200">
+                </ul>
+            </div>
+          </div>
+    </div>
+
+    <script type="module" src="./js/profil.js"></script>
+    <script src="./js/verif.js"></script>
+</body>
+</html>

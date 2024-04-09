@@ -1,0 +1,39 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+li{
+    list-style: none;
+}
+a,a:visited{
+    color:black;
+    text-decoration: none;
+}
+nav{
+    display:flex;
+    justify-content: space-between;  
+    align-items: center;
+    padding: 10px;
+    font-size:calc(0.5rem+1.5vw);
+}
+nav ul{
+    display:flex;
+    justify-content: space-between;
+    width:100%;
+}
+/* Ajout des styles pour les logos cliquables */
+nav ul li img {
+    width: 30px; /* Taille des logos */
+    margin-right: 30px; /* Marge entre les logos */
+    cursor: pointer;
+}
+a img{
+    width: 20%;
+}
+
+/* Centrer la navigation lorsque la largeur de l'écran est inférieure à 650px */
+@media(max-width:650px){
+    nav{
+        justify-content: center;
+    }
+}
